@@ -3,13 +3,13 @@ package com.gildedrose;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class TexttestFixture {
+public class TextTestFixture {
 
     public static void main(String[] args) {
-        System.out.println(getOutputString());
+        System.out.println(getBaseLine());
     }
 
-    public static String getOutputString() {
+    public static String getBaseLine() {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         printStream.println("OMGHAI!");
