@@ -40,24 +40,9 @@ public class Item {
     }
 
     protected void updateQuality() {
-        if (isAgedBrie()
-                || isBackStagePass()) {
+        if (isAgedBrie()) {
             if (quality < 50) {
                 quality = quality + 1;
-
-                if (isBackStagePass()) {
-                    if (sellIn < 11) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-
-                    if (sellIn < 6) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-                }
             }
         } else {
             if (quality > 0) {
