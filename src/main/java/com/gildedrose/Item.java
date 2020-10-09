@@ -52,4 +52,7 @@ public class Item {
         return sellIn < 0;
     }
 
+    protected void increaseQuality() {
+        quality = quality + 1;
+    }
 }

@@ -28,8 +28,4 @@ public class BackstagePass extends Item {
             }
         }
     }
-
-    private void increaseQuality() {
-        quality = quality + 1;
-    }
 }

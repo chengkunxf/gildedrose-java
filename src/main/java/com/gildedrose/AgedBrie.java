@@ -18,8 +18,4 @@ public class AgedBrie extends Item {
             increaseQuality();
         }
     }
-
-    private void increaseQuality() {
-        quality = quality + 1;
-    }
 }
