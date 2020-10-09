@@ -33,21 +33,14 @@ public class Item {
     }
 
     protected void updateQualityAfterExpiration() {
-
         if (quality > 0) {
             quality = quality - 1;
         }
     }
 
     protected void updateQuality() {
-        if (isAgedBrie()) {
-            if (quality < 50) {
-                quality = quality + 1;
-            }
-        } else {
-            if (quality > 0) {
-                quality = quality - 1;
-            }
+        if (quality > 0) {
+            quality = quality - 1;
         }
     }
 
