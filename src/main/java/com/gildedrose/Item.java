@@ -22,7 +22,7 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
-    void updateItemQuality() {
+    void passOneDay() {
         updateQuality();
 
         updateSellIn();
@@ -34,14 +34,18 @@ public class Item {
 
     protected void updateQualityAfterExpiration() {
         if (quality > 0) {
-            quality = quality - 1;
+            decreaseQuality();
         }
     }
 
     protected void updateQuality() {
         if (quality > 0) {
-            quality = quality - 1;
+            decreaseQuality();
         }
+    }
+
+    private void decreaseQuality() {
+        quality = quality - 1;
     }
 
     protected void updateSellIn() {
