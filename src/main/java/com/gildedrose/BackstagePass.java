@@ -6,11 +6,6 @@ public class BackstagePass extends Item {
     }
 
     @Override
-    protected boolean isBackStagePass() {
-        return true;
-    }
-
-    @Override
     protected void updateQualityAfterExpiration() {
         quality = 0;
     }
