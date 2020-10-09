@@ -33,56 +33,59 @@ public class Item {
     }
 
     protected void updateQualityAfterExpiration() {
-        if (!isAgedBrie()) {
-            if (!isBackStagePass()) {
-                if (quality > 0) {
-                    if (!isSulfuras()) {
-                        quality = quality - 1;
-                    }
-                }
-            } else {
-                quality = 0;
-            }
-        } else {
+        if (isAgedBrie()) {
             if (quality < 50) {
                 quality = quality + 1;
+            }
+        } else {
+            if (isBackStagePass()) {
+                quality = 0;
+            } else {
+                if (quality > 0) {
+                    if (isSulfuras()) {
+                        return;
+                    }
+                    quality = quality - 1;
+                }
             }
         }
     }
 
     protected void updateQuality() {
-        if (!isAgedBrie()
-                && !isBackStagePass()) {
+        if (isAgedBrie()
+                || isBackStagePass()) {
+                    if (quality < 50) {
+                        quality = quality + 1;
+
+                        if (isBackStagePass()) {
+                            if (sellIn < 11) {
+                                if (quality < 50) {
+                                    quality = quality + 1;
+                                }
+                            }
+
+                            if (sellIn < 6) {
+                                if (quality < 50) {
+                                    quality = quality + 1;
+                                }
+                            }
+                        }
+                    }
+                } else {
             if (quality > 0) {
-                if (!isSulfuras()) {
-                    quality = quality - 1;
+                if (isSulfuras()) {
+                    return;
                 }
-            }
-        } else {
-            if (quality < 50) {
-                quality = quality + 1;
-
-                if (isBackStagePass()) {
-                    if (sellIn < 11) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-
-                    if (sellIn < 6) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-                }
+                quality = quality - 1;
             }
         }
     }
 
     protected void updateSellIn() {
-        if (!isSulfuras()) {
-            sellIn = sellIn - 1;
+        if (isSulfuras()) {
+            return;
         }
+        sellIn = sellIn - 1;
     }
 
     private boolean isExpired() {
