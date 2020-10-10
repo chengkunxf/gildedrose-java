@@ -37,13 +37,13 @@ public class Item {
             if (quality < 50) {
                 quality = quality + 1;
             }
+            return;
+        }
+        if (isBackstagePass()) {
+            quality = 0;
         } else {
-            if (isBackstagePass()) {
-                quality = 0;
-            } else {
-                if (quality > 0) {
-                    quality = quality - 1;
-                }
+            if (quality > 0) {
+                quality = quality - 1;
             }
         }
     }
