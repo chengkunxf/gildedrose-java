@@ -21,22 +21,6 @@ public class Item {
         this.quality = quality;
     }
 
-    public static Item createAgedBrie(int sellIn, int quality) {
-        return new AgedBrie(sellIn, quality);
-    }
-
-    public static Item createBackstagePass(int sellIn, int quality) {
-        return new BackstagePass(sellIn, quality);
-    }
-
-    public static Item createSulfuras(int sellIn, int quality) {
-        return new Sulfuras(sellIn, quality);
-    }
-
-    public static Item createNormal(String name, int sellIn, int quality) {
-        return new Item(name, sellIn, quality);
-    }
-
     @Override
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
