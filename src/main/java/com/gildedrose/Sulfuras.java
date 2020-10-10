@@ -9,4 +9,6 @@ public class Sulfuras extends Item {
     protected boolean isSulfuras() {
         return true;
     }
+
+
 }
