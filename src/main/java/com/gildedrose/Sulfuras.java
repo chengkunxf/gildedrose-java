@@ -10,5 +10,8 @@ public class Sulfuras extends Item {
         return true;
     }
 
+    @Override
+    protected void updateSellIn() {
 
+    }
 }
