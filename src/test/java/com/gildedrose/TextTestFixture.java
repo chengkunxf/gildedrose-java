@@ -3,9 +3,9 @@ package com.gildedrose;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class TexttestFixture {
+public class TextTestFixture {
     public static void main(String[] args) {
-        System.out.println(TexttestFixture.getOutput());
+        System.out.println(TextTestFixture.getOutput());
     }
 
     public static String getOutput() {
@@ -35,7 +35,7 @@ public class TexttestFixture {
                 printStream.println(item);
             }
             printStream.println();
-            app.update_quality();
+            app.updateQuality();
         }
 
         return out.toString();

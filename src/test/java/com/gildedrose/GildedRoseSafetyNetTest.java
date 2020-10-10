@@ -15,6 +15,6 @@ public class GildedRoseSafetyNetTest {
     @Test
     public void should_get_baseline_equals_get_out_put_string() throws IOException {
         String baseline = Files.toString(new File("src/test/baseline.txt"), Charsets.UTF_8);
-        assertThat(TexttestFixture.getOutput(), Is.is(baseline));
+        assertThat(TextTestFixture.getOutput(), Is.is(baseline));
     }
 }
