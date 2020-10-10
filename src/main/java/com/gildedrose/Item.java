@@ -54,7 +54,7 @@ public class Item {
             sellIn = sellIn - 1;
         }
 
-        if (sellIn < 0) {
+        if (isExpired()) {
             if (!isAgedBrie()) {
                 if (!isBackstagePass()) {
                     if (quality > 0) {
@@ -71,6 +71,10 @@ public class Item {
                 }
             }
         }
+    }
+
+    private boolean isExpired() {
+        return sellIn < 0;
     }
 
     protected boolean isSulfuras() {
