@@ -11,11 +11,28 @@ public class Item {
 
     public int quality;
 
-    public Item(String name, int sellIn, int quality) {
+    public static Item createAgedBrie(int sellIn, int quality) {
+        return new Item(AGED_BRIE, sellIn, quality);
+    }
+
+    public static Item createBackstagePass(int sellIn, int quality) {
+        return new Item(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, sellIn, quality);
+    }
+
+    public static Item createSulfuras(int sellIn, int quality) {
+        return new Item(SULFURAS_HAND_OF_RAGNAROS, sellIn, quality);
+    }
+
+    public static Item createNormal(String name, int sellIn, int quality) {
+        return new Item(name, sellIn, quality);
+    }
+
+    private Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
     }
+
 
     @Override
     public String toString() {
