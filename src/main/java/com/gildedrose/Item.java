@@ -1,5 +1,9 @@
 package com.gildedrose;
 
+import com.gildedrose.item.AgedBrie;
+import com.gildedrose.item.BackstagePass;
+import com.gildedrose.item.Sulfuras;
+
 public class Item {
 
     public static final String AGED_BRIE = "Aged Brie";
@@ -18,15 +22,15 @@ public class Item {
     }
 
     public static Item createAgedBrie(int sellIn, int quality) {
-        return new Item(AGED_BRIE, sellIn, quality);
+        return new AgedBrie(sellIn, quality);
     }
 
     public static Item createBackstagePass(int sellIn, int quality) {
-        return new Item(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, sellIn, quality);
+        return new BackstagePass(sellIn, quality);
     }
 
     public static Item createSulfuras(int sellIn, int quality) {
-        return new Item(SULFURAS_HAND_OF_RAGNAROS, sellIn, quality);
+        return new Sulfuras(sellIn, quality);
     }
 
     public static Item createNormal(String name, int sellIn, int quality) {
