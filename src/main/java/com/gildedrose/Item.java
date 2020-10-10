@@ -52,15 +52,4 @@ public class Item {
         return sellIn < 0;
     }
 
-    protected boolean isSulfuras() {
-        return false;
-    }
-
-    protected boolean isBackstagePass() {
-        return false;
-    }
-
-    protected boolean isAgedBrie() {
-        return false;
-    }
 }
