@@ -52,9 +52,6 @@ public class Item {
         if (!isAgedBrie()
                 && !isBackstagePass()) {
             if (quality > 0) {
-                if (isSulfuras()) {
-                    return;
-                }
                 quality = quality - 1;
             }
         } else {
