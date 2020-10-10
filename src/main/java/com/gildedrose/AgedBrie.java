@@ -22,6 +22,5 @@ public class AgedBrie extends Item {
         if (quality < 50) {
             quality = quality + 1;
         }
-
     }
 }

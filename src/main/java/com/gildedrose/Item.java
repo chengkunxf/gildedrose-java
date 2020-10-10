@@ -33,10 +33,6 @@ public class Item {
     }
 
     protected void udpateQualityAfterExpiration() {
-        if (isBackstagePass()) {
-            quality = 0;
-            return;
-        }
         if (quality > 0) {
             quality = quality - 1;
         }
