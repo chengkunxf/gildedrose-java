@@ -33,15 +33,11 @@ public class Item {
     }
 
     protected void udpateQualityAfterExpiration() {
-        if (quality > 0) {
-            quality = quality - 1;
-        }
+        decreaseQuality();
     }
 
     protected void updateQuality() {
-        if (quality > 0) {
-            quality = quality - 1;
-        }
+        decreaseQuality();
     }
 
     protected void updateSellIn() {
@@ -52,4 +48,15 @@ public class Item {
         return sellIn < 0;
     }
 
+    protected void increaseQuality() {
+        if (quality < 50) {
+            quality = quality + 1;
+        }
+    }
+
+    private void decreaseQuality() {
+        if (quality > 0) {
+            quality = quality - 1;
+        }
+    }
 }
