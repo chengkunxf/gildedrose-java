@@ -22,7 +22,7 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
-    void something() {
+    void passOneDay() {
         updateQuality();
 
         updateSellIn();
