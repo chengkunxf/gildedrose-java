@@ -56,8 +56,7 @@ public class Item {
             return;
         }
 
-        if (isAgedBrie()
-                || isBackstagePass()) {
+        if (isBackstagePass()) {
             if (quality < 50) {
                 quality = quality + 1;
 
