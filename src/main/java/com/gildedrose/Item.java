@@ -45,12 +45,6 @@ public class Item {
     }
 
     protected void updateQuality() {
-        if (isAgedBrie()) {
-            if (quality < 50) {
-                quality = quality + 1;
-            }
-            return;
-        }
         if (quality > 0) {
             quality = quality - 1;
         }
