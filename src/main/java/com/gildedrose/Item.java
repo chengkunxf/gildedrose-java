@@ -36,24 +36,6 @@ public class Item {
         }
     }
 
-    protected void updateQualityAfterExpiration() {
-        if (!isAgedBrie()) {
-            if (!isBackstagePass()) {
-                if (quality > 0) {
-                    if (!isSulfuras()) {
-                        quality = quality - 1;
-                    }
-                }
-            } else {
-                quality = 0;
-            }
-        } else {
-            if (quality < 50) {
-                quality = quality + 1;
-            }
-        }
-    }
-
     private boolean isExpired() {
         return sellIn < 0;
     }
@@ -63,29 +45,49 @@ public class Item {
     }
 
     protected void updateQuality() {
-        if (!isAgedBrie()
-                && !isBackstagePass()) {
+        if (isAgedBrie()
+                || isBackstagePass()) {
+                    if (quality < 50) {
+                        quality = quality + 1;
+
+                        if (isBackstagePass()) {
+                            if (sellIn < 11) {
+                                if (quality < 50) {
+                                    quality = quality + 1;
+                                }
+                            }
+
+                            if (sellIn < 6) {
+                                if (quality < 50) {
+                                    quality = quality + 1;
+                                }
+                            }
+                        }
+                    }
+                } else {
             if (quality > 0) {
-                if (!isSulfuras()) {
-                    quality = quality - 1;
+                if (isSulfuras()) {
+                    return;
                 }
+                quality = quality - 1;
             }
-        } else {
+        }
+    }
+
+    protected void updateQualityAfterExpiration() {
+        if (isAgedBrie()) {
             if (quality < 50) {
                 quality = quality + 1;
-
-                if (isBackstagePass()) {
-                    if (sellIn < 11) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
+            }
+        } else {
+            if (isBackstagePass()) {
+                quality = 0;
+            } else {
+                if (quality > 0) {
+                    if (isSulfuras()) {
+                        return;
                     }
-
-                    if (sellIn < 6) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
+                    quality = quality - 1;
                 }
             }
         }
