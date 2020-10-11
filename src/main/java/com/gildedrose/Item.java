@@ -47,24 +47,24 @@ public class Item {
     protected void updateQuality() {
         if (isAgedBrie()
                 || isBackstagePass()) {
-                    if (quality < 50) {
-                        quality = quality + 1;
+            if (quality < 50) {
+                quality = quality + 1;
 
-                        if (isBackstagePass()) {
-                            if (sellIn < 11) {
-                                if (quality < 50) {
-                                    quality = quality + 1;
-                                }
-                            }
-
-                            if (sellIn < 6) {
-                                if (quality < 50) {
-                                    quality = quality + 1;
-                                }
-                            }
+                if (isBackstagePass()) {
+                    if (sellIn < 11) {
+                        if (quality < 50) {
+                            quality = quality + 1;
                         }
                     }
-                } else {
+
+                    if (sellIn < 6) {
+                        if (quality < 50) {
+                            quality = quality + 1;
+                        }
+                    }
+                }
+            }
+        } else {
             if (quality > 0) {
                 if (isSulfuras()) {
                     return;
@@ -79,18 +79,19 @@ public class Item {
             if (quality < 50) {
                 quality = quality + 1;
             }
+            return;
+        }
+        if (isBackstagePass()) {
+            quality = 0;
         } else {
-            if (isBackstagePass()) {
-                quality = 0;
-            } else {
-                if (quality > 0) {
-                    if (isSulfuras()) {
-                        return;
-                    }
-                    quality = quality - 1;
+            if (quality > 0) {
+                if (isSulfuras()) {
+                    return;
                 }
+                quality = quality - 1;
             }
         }
+
     }
 
     protected boolean isSulfuras() {
