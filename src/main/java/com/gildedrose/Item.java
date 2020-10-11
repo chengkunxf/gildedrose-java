@@ -64,11 +64,12 @@ public class Item {
                     }
                 }
             }
-        } else {
-            if (quality > 0) {
-                quality = quality - 1;
-            }
+            return;
         }
+        if (quality > 0) {
+            quality = quality - 1;
+        }
+
     }
 
     protected void updateQualityAfterExpiration() {
