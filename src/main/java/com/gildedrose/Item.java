@@ -56,15 +56,4 @@ public class Item {
         }
     }
 
-    protected boolean isSulfuras() {
-        return false;
-    }
-
-    protected boolean isBackstagePass() {
-        return false;
-    }
-
-    protected boolean isAgedBrie() {
-        return false;
-    }
 }
