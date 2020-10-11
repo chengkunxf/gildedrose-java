@@ -36,7 +36,7 @@ public class Item {
         }
     }
 
-    private void updateQualityAfterExpiration() {
+    protected void updateQualityAfterExpiration() {
         if (!isAgedBrie()) {
             if (!isBackstagePass()) {
                 if (quality > 0) {
@@ -58,13 +58,11 @@ public class Item {
         return sellIn < 0;
     }
 
-    private void updateSellIn() {
-        if (!isSulfuras()) {
-            sellIn = sellIn - 1;
-        }
+    protected void updateSellIn() {
+        sellIn = sellIn - 1;
     }
 
-    private void updateQuality() {
+    protected void updateQuality() {
         if (!isAgedBrie()
                 && !isBackstagePass()) {
             if (quality > 0) {
