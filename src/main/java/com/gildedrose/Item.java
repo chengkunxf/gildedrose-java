@@ -78,10 +78,6 @@ public class Item {
             }
             return;
         }
-        if (isBackstagePass()) {
-            quality = 0;
-            return;
-        }
         if (quality > 0) {
             quality = quality - 1;
         }
