@@ -36,29 +36,31 @@ public class Item {
         }
     }
 
-    private boolean isExpired() {
-        return sellIn < 0;
-    }
-
     protected void updateSellIn() {
         sellIn = sellIn - 1;
     }
 
     protected void updateQuality() {
-        if (quality > 0) {
-            quality = quality - 1;
-        }
+        decreaseQuality();
     }
 
     protected void updateQualityAfterExpiration() {
-        if (quality > 0) {
-            quality = quality - 1;
-        }
+        decreaseQuality();
     }
 
     protected void increaseQuality() {
         if (quality < 50) {
             quality = quality + 1;
         }
+    }
+
+    private void decreaseQuality() {
+        if (quality > 0) {
+            quality = quality - 1;
+        }
+    }
+
+    private boolean isExpired() {
+        return sellIn < 0;
     }
 }
