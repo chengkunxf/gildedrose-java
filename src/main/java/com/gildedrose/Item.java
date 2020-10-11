@@ -1,9 +1,5 @@
 package com.gildedrose;
 
-import com.gildedrose.item.AgedBrie;
-import com.gildedrose.item.BackstagePass;
-import com.gildedrose.item.Sulfuras;
-
 public class Item {
 
     public static final String AGED_BRIE = "Aged Brie";
