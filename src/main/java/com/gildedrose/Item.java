@@ -1,7 +1,14 @@
 package com.gildedrose;
 
+import com.gildedrose.item.AgedBrie;
+import com.gildedrose.item.BackstagePass;
+import com.gildedrose.item.Sulfuras;
+
 public class Item {
 
+    public static final String AGED_BRIE = "Aged Brie";
+    public static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
+    public static final String BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
     public String name;
 
     public int sellIn;
@@ -20,53 +27,50 @@ public class Item {
     }
 
     void dosomething() {
-        if (!name.equals("Aged Brie")
-                && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (quality > 0) {
-                if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                    quality = quality - 1;
-                }
-            }
-        } else {
+        updateQuality();
+
+        updateSellIn();
+
+        if (isExpired()) {
+            updateAfterExpiration();
+        }
+    }
+
+    public void updateAfterExpiration() {
+        if (quality > 0) {
+            quality = quality - 1;
+        }
+    }
+
+    private boolean isExpired() {
+        return sellIn < 0;
+    }
+
+    public void updateSellIn() {
+        sellIn = sellIn - 1;
+    }
+
+    public void updateQuality() {
+        if(isAgedBrie()) {
             if (quality < 50) {
                 quality = quality + 1;
-
-                if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (sellIn < 11) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-
-                    if (sellIn < 6) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-                }
             }
+            return;
         }
 
-        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-            sellIn = sellIn - 1;
+        if (quality > 0) {
+            quality = quality - 1;
         }
 
-        if (sellIn < 0) {
-            if (!name.equals("Aged Brie")) {
-                if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (quality > 0) {
-                        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                            quality = quality - 1;
-                        }
-                    }
-                } else {
-                    quality = 0;
-                }
-            } else {
-                if (quality < 50) {
-                    quality = quality + 1;
-                }
-            }
+    }
+
+    private boolean isAgedBrie() {
+        return name.equals(AGED_BRIE);
+    }
+
+    protected void increaseQuality() {
+        if (quality < 50) {
+            quality = quality + 1;
         }
     }
 }
